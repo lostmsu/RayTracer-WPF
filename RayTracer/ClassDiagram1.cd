@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RayTracer.Float3">
+    <Position X="2.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAACBAAAAAAgAcAUAAABACAAAAAAAAAKwAAAAYAE=</HashCode>
+      <FileName>Float3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.KImage">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAJABAABAAAAAEAAAAAAEAAAAAAAAAAAAEAAIAAABA=</HashCode>
+      <FileName>KImage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="RayTracer.Scene">
+    <Position X="4.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAIAAAAAAAAAAAAAiAAAAAAEBAAAAAgCAAAAEA=</HashCode>
+      <FileName>Scene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Object">
+    <Position X="22" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACIAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Objects\Object.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Camera" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAABAAgAAAAAAAAAAAAAAIAAAAAAAAAEI=</HashCode>
+      <FileName>Cameras\Camera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Sphere">
+    <Position X="23" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAACIAAAAAAAAAAAEAAAAAAIAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Objects\Sphere.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Primitive">
+    <Position X="23.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAACAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Primitive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Material">
+    <Position X="14.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Materials\Material.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.LambertianMaterial">
+    <Position X="16.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Materials\LambertianMaterial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.PinholeCamera">
+    <Position X="8.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAABAAAAAIAAAAAAAAAAAAAASAEA=</HashCode>
+      <FileName>Cameras\PinholeCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Ray">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAEAAABAAACAIAAAAIAAAAAAAAAEAAAgAAAA=</HashCode>
+      <FileName>Ray.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.HitData">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAACAAAAAIAAAAAAAAAAAAgAAAAAYAAAAE=</HashCode>
+      <FileName>HitData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.RenderContext">
+    <Position X="4.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAAgAAg4AAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RenderContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Background" Collapsed="true">
+    <Position X="14.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Backgrounds\Background.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.ConstantBackground">
+    <Position X="14.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Backgrounds\ConstantBackground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Light">
+    <Position X="9.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lights\Light.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.PointLight">
+    <Position X="8.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgABAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Lights\PointLight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.ObjectGroup">
+    <Position X="18.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACIAAAAAAAAAAAEAAAABAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\ObjectGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Box">
+    <Position X="21.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACIAAAAAAAAAAAEAAACAAIAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Objects\Box.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Plane">
+    <Position X="24.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAASIAAgAAAAEAAAEAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Plane.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Triangle">
+    <Position X="19.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAASIAAAAAAAAAAAEAAAAAAIAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Triangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.PhongMaterial">
+    <Position X="14.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAgAgAAAAAAAAAAAAAAAABAAAEAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Materials\PhongMaterial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.MetalMaterial">
+    <Position X="12.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Materials\MetalMaterial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.OrthographicCamera" Collapsed="true">
+    <Position X="6.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAJAAAAAAAAAAAAAAAAAAAASAEA=</HashCode>
+      <FileName>Cameras\OrthographicCamera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.DirectionalLight">
+    <Position X="10" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Lights\DirectionalLight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Disk">
+    <Position X="28.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAACIAAAAAAAAAAAEAAAAAAIIAAAAAAAAAAAIgAA=</HashCode>
+      <FileName>Objects\Disk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Ring">
+    <Position X="26.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACIAAAAAAAAAAAEIAAAABIIAAAAAAAAAAAIgAA=</HashCode>
+      <FileName>Ring.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.BVHGroup" Collapsed="true">
+    <Position X="21" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACIAAAAAACAAAAUAAAABAAAAAEAAAIAAAAAAAA=</HashCode>
+      <FileName>Objects\BVHGroup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer.Group">
+    <Position X="20" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Objects\Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="RayTracer.IImage">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABABAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IImage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,185 @@
+﻿<Window x:Class="RayTracerHost.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:tracer="clr-namespace:RayTracer;assembly=RayTracer"
+    xmlns:wpf="clr-namespace:RayTracer.WPF;assembly=RayTracer"
+    xmlns:local="clr-namespace:RayTracerHost"
+    xmlns:controls="clr-namespace:WpfControls;assembly=WpfControls"
+    Title="Window1" Height="620" Width="900"
+    Background="#FFf0f9f0">
+  <Window.Resources>
+    <!-- Converters -->
+    <wpf:Double3ToBrushConverter x:Key="Double3ToBrushConverter" />
+    <wpf:Double3ToStringConverter x:Key="Double3ToStringConverter" />
+    <wpf:Double3ToColorConverter x:Key="Double3ToColorConverter" />
+
+
+    <!-- Scene Data Templates -->
+    <DataTemplate DataType="{x:Type tracer:Scene}">
+      <GroupBox Header="Scene Information">
+        <StackPanel>
+          <Label Content="{Binding Path=Image}" />
+          <StackPanel Orientation="Horizontal">
+            <Label Content="Max Ray Depth"/>
+            <TextBox Text="{Binding Path=MaxDepth}" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal">
+            <Label Content="Minimum Attenuation" />
+            <TextBox Text="{Binding Path=MinAttenuation}" />
+          </StackPanel>
+          <Label Content="{Binding Path=Camera}" />
+          <Label Content="{Binding Path=Background}" />
+          <ListView ItemsSource="{Binding Path=Lights}"/>
+          <Label Content="{Binding Path=Group}" />
+        </StackPanel>
+      </GroupBox>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:SceneImage}">
+      <StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label>Width:</Label>
+          <TextBox Text="{Binding Path=Width}" />
+          <Label>Height:</Label>
+          <TextBox Text="{Binding Path=Height}" />
+        </StackPanel>
+      </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:Camera}">
+      <StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label Content="Eye: " Width="50"/>
+          <TextBox Text="{Binding Path=Eye, Converter={StaticResource Double3ToStringConverter}}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label Content="Lookat: " Width="50"/>
+          <TextBox Text="{Binding Path=Lookat, Converter={StaticResource Double3ToStringConverter}}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label Content="Up: " Width="50"/>
+          <TextBox Text="{Binding Path=Up, Converter={StaticResource Double3ToStringConverter}}" />
+        </StackPanel>
+      </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:PinholeCamera}">
+      <StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label Content="Eye: " Width="80"/>
+          <TextBox Text="{Binding Path=Eye, Converter={StaticResource Double3ToStringConverter}}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label Content="Lookat: " Width="80"/>
+          <TextBox Text="{Binding Path=Lookat, Converter={StaticResource Double3ToStringConverter}}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label Content="Up: " Width="80"/>
+          <TextBox Text="{Binding Path=Up, Converter={StaticResource Double3ToStringConverter}}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+          <Label Content="FieldOfView: " Width="80"/>
+          <TextBox Text="{Binding Path=Fov}" />
+        </StackPanel>
+      </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:ConstantBackground}">
+      <controls:ColorPicker Title="Background Color" Color="{Binding Path=Color, Converter={StaticResource Double3ToColorConverter}, Mode=TwoWay}" />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:PointLight}">
+      <StackPanel>
+        <Label Content="{Binding Path=Name}"/>
+        <StackPanel Orientation="Horizontal">
+          <Label Content="Position: "/>
+          <TextBox Text="{Binding Path=Position, Converter={StaticResource Double3ToStringConverter}}" />
+        </StackPanel>
+        <Label Background="{Binding Path=Color, Converter={StaticResource Double3ToBrushConverter}}" />
+      </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:DirectionalLight}">
+      <StackPanel>
+        <Label Content="{Binding Path=Name}"/>
+        <StackPanel Orientation="Horizontal">
+          <Label Content="Direction: "/>
+          <TextBox Text="{Binding Path=Direction, Converter={StaticResource Double3ToStringConverter}}" />
+        </StackPanel>
+        <Label Background="{Binding Path=Color, Converter={StaticResource Double3ToBrushConverter}}" />
+      </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:ObjectGroup}">
+      <ListView ItemsSource="{Binding Path=Objects}"/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:BVHGroup}">
+      <DockPanel>
+        <Label DockPanel.Dock="Top" Content="{Binding Path=Name}"/>
+        <GroupBox Header="Left" DockPanel.Dock="Left">
+          <Label Content="{Binding Path=LeftGroup}"/>
+        </GroupBox>
+        <GroupBox Header="Right" DockPanel.Dock="Right">
+          <Label Content="{Binding Path=LeftGroup}"/>
+        </GroupBox>
+      </DockPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:Primitive}">
+      <StackPanel>
+        <TextBlock Text="{Binding Path=Name}"/>
+        <Label Content="{Binding Path=Material}"/>
+      </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:PhongMaterial}">
+      <StackPanel>
+        <Label Background="{Binding Path=Ambient, Converter={StaticResource Double3ToBrushConverter}}" />
+        <Label Background="{Binding Path=Diffuse, Converter={StaticResource Double3ToBrushConverter}}" />
+        <Label Background="{Binding Path=Specular, Converter={StaticResource Double3ToBrushConverter}}" />
+        <Label Content="{Binding Path=Exponent}" />
+        <Label Content="{Binding Path=Reflectivity}" />
+      </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type tracer:LambertianMaterial}">
+      <StackPanel>
+        <Label Background="{Binding Path=Ambient, Converter={StaticResource Double3ToBrushConverter}}" />
+        <Label Background="{Binding Path=Diffuse, Converter={StaticResource Double3ToBrushConverter}}" />
+      </StackPanel>
+    </DataTemplate>
+
+  </Window.Resources>
+
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="300"/>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+
+    <ScrollViewer>
+      <StackPanel>
+        <Button Click="Button_Click">Read Scene File</Button>
+        <Button Click="Button_Click_1">Toggle image setting</Button>
+        <StackPanel x:Name="RenderTimePanel" Orientation="Horizontal">
+          <Label>Total Render Time:</Label>
+          <TextBox x:Name="RenderTime" Text="{Binding Path=RenderTime}" 
+                         IsReadOnly="True"/>
+        </StackPanel>
+        <Button Click="RefreshButton_Click" Content="Refresh"/>
+
+        <Label x:Name="SceneDisplay"/>
+      </StackPanel>
+    </ScrollViewer>
+    
+    <Image x:Name="MainImage"
+           RenderTransformOrigin="0.5,0.5"
+           Mouse.MouseDown="MainImage_MouseDown"
+           Grid.Column="1">
+      <Image.RenderTransform>
+        <ScaleTransform ScaleY="-1"/>
+      </Image.RenderTransform>
+    </Image>
+  </Grid>
+</Window>

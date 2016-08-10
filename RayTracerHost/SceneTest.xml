@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Scene Background="#303050" MaxDepth="3" MinAttenuation="0.1">
+  <Resources>
+    <LambertianMaterial Key="LambMat" Ambient="0.1,0.2,0.1" Diffuse="0.5,0.3,0.2"/>
+    <PhongMaterial Key="PhongMat" Ambient="0.1" Diffuse="0.5,0.3,0.2" Specular="1" Exponent="200" Reflectivity="0.2"/>
+  </Resources>
+  
+  <KImage Width="512" Height="512"/>
+  
+  <PinholeCamera Eye="0,0,10" Lookat="0,0,0" Up="0,1,0" Fov="45"/>
+  
+  <Lights>
+    <PointLight Color="0.5" Position="-10,20,10"/>
+    <PointLight Color="0.5,0.5,0.5" Position="-10,20,10"/>
+    <DirectionalLight Color="0.5" Direction="0,-1,0"/>
+  </Lights>
+
+  <ObjectGroup>
+    <Plane Point="0,0,0" Normal="0,1,0">
+      <LambertianMaterial Ambient="0.1,0.2,0.1" Diffuse="0.5,0.3,0.2"/>
+    </Plane>
+
+    <BVHGroup>
+      <Sphere Material="PhongMat" Center="-2,0,0" Radius="1.5"/>
+      <Sphere Material="PhongMat" Center="2,0,0" Radius="1.5"/>
+
+      <Box Corner0="-2.0,2.0,-2.0" Corner1="0.0,3.0f,0.0">
+        <LambertianMaterial Ambient="0.1,0.2,0.1" Diffuse="0.5,0.3,0.2"/>
+      </Box>
+
+      <Triangle Points="2,-1,0 -2,-2,3 1,1,-1">
+        <LambertianMaterial Ambient="0.1,0.2,0.1" Diffuse="0.2,0.5,0.2"/>
+      </Triangle>
+    </BVHGroup>
+  </ObjectGroup>
+</Scene>
